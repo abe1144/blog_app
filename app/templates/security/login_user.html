@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block content %} {% from "security/_macros.html"
+import render_field_with_errors, render_field %} {% include
+"security/_messages.html" %}
+<section class="hero is-fullheight-with-navbar">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-multiline content2">
+        <div class="column is-one-quarter"></div>
+        <div class="column is-half">
+          <h1 class="title">{{ _('Login') }}</h1>
+          <form
+            action="{{ url_for_security('login') }}"
+            method="POST"
+            name="login_user_form"
+          >
+            {{ login_user_form.hidden_tag() }}
+            <div class="field">
+              <p class="control">
+                {{ render_field_with_errors(login_user_form.email,
+                class="input") }}
+              </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                {{ render_field_with_errors(login_user_form.password,
+                class="input") }}
+              </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                {{ render_field_with_errors(login_user_form.remember) }}
+              </p>
+            </div>
+            {{ render_field(login_user_form.next) }}
+            <div class="field">
+              <p class="control">
+                {{ render_field(login_user_form.submit, class="button
+                is-success") }}
+              </p>
+            </div>
+          </form>
+        </div>
+        <div class="column is-one-quarter"></div>
+      </div>
+    </div>
+  </div>
+</section>
+{% include "security/_menu.html" %} {% endblock %}

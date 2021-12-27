@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %} {% endblock %}</title>
+  <script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma.min.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bulma-divider.min.css') }}" />
+  <script src="{{ url_for('static', filename='tinymce/js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
+  <script type="text/javascript">
+    tinymce.init({
+      selector: "#body",
+      plugins: [
+        "advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak spellchecker",
+        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+        "save table contextmenu directionality template paste textcolor codesample",
+      ],
+      external_plugins: {
+        'tiny_mce_wiris': 'static/node_modules/@wiris/mathtype-tinymce5/plugin.min.js',
+      },
+      style_formats: [
+        {
+          title: "Subtitle 1",
+          block: "h1",
+          classes: "subtitle is-1",
+        },
+        {
+          title: "Subtitle 2",
+          block: "h2",
+          classes: "subtitle is-2",
+        },
+        {
+          title: "Subtitle 3",
+          block: "h3",
+          classes: "subtitle is-3",
+        },
+        {
+          title: "Subtitle 4",
+          block: "h4",
+          classes: "subtitle is-4",
+        },
+        {
+          title: "Subtitle 5",
+          block: "h5",
+          classes: "subtitle is-5",
+        },
+        {
+          title: "Subtitle 6",
+          block: "h6",
+          classes: "subtitle is-6",
+        },
+        {
+          title: "paragraph",
+          block: "p",
+        },
+      ],
+      toolbar:
+        "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons | codesample tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry",
+      htmlAllowedTags: ['.*'],
+      htmlAllowedAttrs: ['.*'],
+      draggable_modal: true,
+      codesample_languages: [
+        { text: "HTML/XML", value: "markup" },
+        { text: "JavaScript", value: "javascript" },
+        { text: "CSS", value: "css" },
+        { text: "Processing", value: "processing" },
+        { text: "Python", value: "python" },
+      ],
+      height: "400px",
+    });
+  </script>
+</head>
+<!-- {{ url_for('static', filename='images/deego_analytics.png') }} -->
+<!-- START NAV -->
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='images/deego_analytics.png') }}" alt="Logo" class="logo" />
+      </a>
+      <span class="navbar-burger burger" data-target="navbarMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
+    <div id="navbarMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="control has-icons-left">
+            <form method="GET">
+              <div class="field has-addons">
+                <div class="control">
+                  <input class="input" type="search" placeholder="Search" name="q" />
+                </div>
+                <div class="control">
+                  <button class="button is-info" type="submit">Search</button>
+                </div>
+              </div>
+              <span class="icon is-left">
+                <i class="fa fa-search"></i>
+              </span>
+            </form>
+          </div>
+        </div>
+        <a class="navbar-item is-active is-size-5 has-text-weight-semibold" href="{{ url_for('index') }}">
+          Home
+        </a>
+        <a class="navbar-item is-size-5 has-text-weight-semibold" href="{{ url_for('posts.posts_list') }}">
+          Blog
+        </a>
+        <div class="
+              navbar-item
+              has-dropdown
+              is-hoverable is-size-5
+              has-text-weight-semibold
+            ">
+          <a class="navbar-link">About</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="{{ url_for('about_blog') }}">
+              About Blog
+            </a>
+            <a class="navbar-item" href="{{ url_for('about') }}">
+              About Me
+            </a>
+          </div>
+        </div>
+
+        {% if current_user.has_role('admin') %}
+        <a class="navbar-item is-size-5 has-text-weight-semibold" href="./admin">
+          Admin
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- END NAV -->
+
+{% block content %} {% endblock %} {% if current_user.is_authenticated %}
+<div class="login-panel">
+  <a href="{{ url_for('security.logout') }}" class="button">Logout</a>
+</div>
+{% endif %}
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-multiline">
+      <div class="column has-text-centered">
+        <a href="{{ url_for('index') }}">Home</a>
+      </div>
+      <div class="column has-text-centered">
+        <a href="{{ url_for('posts.posts_list') }}">All Posts</a>
+      </div>
+      <div class="column has-text-centered">
+        <a href="{{ url_for('terms') }}">Terms and Conditions</a>
+      </div>
+    </div>
+    <div class="content is-small has-text-centered">
+      <p>Powered by Coffee and Tea</p>
+    </div>
+  </div>
+</footer>
+
+</html>

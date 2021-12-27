@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block title %}Create a New Project{% endblock %} {%
+block content %}
+
+<section class="hero is-fullheight-with-navbar">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-one-third"></div>
+        <div class="column is-one-third">
+          <h1 class="title">Create New Project</h1>
+          <form
+            action="{{ url_for('newproject') }}"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="field">
+              <label class="label">{{ form.project_name.label() }}</label>
+              <p class="control">
+                {{ form.project_name(class="input", placeholder="Project Name")
+                }}
+              </p>
+            </div>
+            <div class="field">{{ form.csrf_token }} {{ form.image }}</div>
+            <div class="field">
+              <label class="label">{{ form.project_url.label() }}</label>
+              <p class="control">
+                {{ form.project_url(placeholder="Code URL", class="input") }}
+              </p>
+            </div>
+            <div class="field">
+              <label class="label">{{ form.info_url.label() }}</label>
+              <p class="control">
+                {{ form.info_url(placeholder="Project Info URL", class="input")
+                }}
+              </p>
+            </div>
+            <button class="button is-info" type="submit">Submit</button>
+          </form>
+        </div>
+        <div class="column is-one-third"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

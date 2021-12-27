@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma.min.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome/css/all.css') }}" />
+</head>
+<style>
+  .fab {
+    font-size: 30px;
+    padding-right: 10px;
+    color: black;
+    padding-left: 1px;
+  }
+
+  .fas {
+    font-size: 30px;
+    padding-right: 10px;
+    color: black;
+    padding-left: 1px;
+  }
+
+  .fab:hover {
+    color: blue;
+  }
+
+  .fas:hover {
+    color: blue;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+<body>
+  <nav class="navbar is-fixed-top">
+    <div class="navbar-brand">
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#home">
+          <span>Home</span>
+        </a>
+        <a class="navbar-item" href="#about">
+          <span>About</span>
+        </a>
+        <a class="navbar-item" href="#work">
+          <span>Work</span>
+        </a>
+        <a class="navbar-item" href="#portfolio">
+          <span>Portfolio</span>
+        </a>
+        <!-- <a class="navbar-item" href="#contact">
+          <span>Contact</span>
+        </a> -->
+        <a class="navbar-item" href="{{ url_for('index') }}">
+          <span>Blog</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero is-fullheight-with-navbar" id="home">
+    <div class="hero-body">
+      <div class="container">
+        <p class="subtitle is-5">Hello, my name is</p>
+        <h1 class="title is-1">Abraham</h1>
+        <h2 class="subtitle is-3">
+          An Enthusiast with a Passion in
+          <span id="typewriter"></span>
+        </h2>
+
+        <h3 class="subtitle is-4">Find me on:</h3>
+        <div class="contact-section">
+          <p>
+            <a href="https://www.linkedin.com/in/abraham-lin-8409ab6b/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/abe1144"><i class="fab fa-github"></i></a>
+            <a href="{{ url_for('index') }}"><i class="fas fa-blog"></i></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="hero is-fullheight" id="about">
+    <div class="hero-body">
+      <div class="container">
+        <h3 class="title is-2">About Me</h3>
+        <p>
+          I am currently pursuing my Masters of Science in Statistics and Data
+          Science at <a href="https://www.kuleuven.be/english/">KU Leuven</a>.
+          I previously graduated with a Bachelor of Mathematics degree with a
+          specialization in Statistics and Business Administratation at the
+          <a href="https://uwaterloo.ca">University of Waterloo</a>. I have
+          about 4 years of working experience in the field of analytics from
+          past internships and full-time positions.
+        </p>
+        <br />
+        <div class="columns has-same-height is-gapless">
+          <div class="column"></div>
+          <div class="column">
+            <!-- Skills -->
+            <div class="card">
+              <div class="card-content skills-content">
+                <h3 class="title is-4">Skills</h3>
+                <div class="content">
+                  <article class="media">
+                    <div class="media-content">
+                      <div class="content">
+                        <p>
+                          <strong>Python</strong>
+                          <br />
+                          <progress class="progress is-dark" value="90" max="100"></progress>
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="media">
+                    <div class="media-content">
+                      <div class="content">
+                        <p>
+                          <strong>SQL</strong>
+                          <br />
+                          <progress class="progress is-dark" value="90" max="100"></progress>
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="media">
+                    <div class="media-content">
+                      <div class="content">
+                        <p>
+                          <strong>R</strong>
+                          <br />
+                          <progress class="progress is-dark" value="75" max="100"></progress>
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="media">
+                    <div class="media-content">
+                      <div class="content">
+                        <p>
+                          <strong>Machine Learning</strong>
+                          <br />
+                          <progress class="progress is-dark" value="75" max="100"></progress>
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="media">
+                    <div class="media-content">
+                      <div class="content">
+                        <p>
+                          <strong>Data Visualization</strong>
+                          <br />
+                          <progress class="progress is-dark" value="80" max="100"></progress>
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-fullheight" id="work">
+    <div class="hero-body">
+      <div class="container">
+        <h3 class="title is-2">Work</h3>
+        <div class="columns is-multiline is-mobile">
+          <!-- job 1 -->
+          <div class="column is-half">
+            <p class="tight">
+              Data Analyst<br />
+              VetSuccess<br />
+            </p>
+          </div>
+          <div class="column is-half">
+            <p>
+              Jan 2019 - Sept 2020<br />
+              Toronto, Ontario, Canada
+            </p>
+          </div>
+          <div class="column is-half">
+            <p>
+              <more>Worked on the Data team. Developed a similarity learning
+                model to help link siloed data sources together, in order to
+                produce more comprehensive and precise analysis. Analyzed and
+                Visualized veterinarian practice data for clients that brought
+                data-driven insights and recommendations on best course of
+                action. Built a statistical model using practice data that
+                explains relevant factors required to run a successful
+                veterinarian practice.</more>
+            </p>
+          </div>
+          <div class="column is-half"></div>
+          <!-- job 2 -->
+          <div class="column is-half">
+            <p class="tight">
+              Data Analyst / Solutions Architect<br />
+              Groupby Inc.<br />
+            </p>
+          </div>
+          <div class="column is-half">
+            <p>
+              May 2018 - Jan 2019<br />
+              Toronto, Ontario, Canada
+            </p>
+          </div>
+          <div class="column is-half">
+            <p>
+              <more>Worked on the Data Enrichment team. Enriched eCommerce
+                product data for customers through text mining and image
+                clustering to create valuable facets to enhance the online
+                shopping experience. Created a computer vision script in
+                Python to identify a product's color, reducing manual curation
+                tasks by 10%. Transitioned into the Presales team as a
+                Solutions Architect to build and present technical demos to
+                prospective clients by incorporating the company's technology
+                with front end development.</more>
+            </p>
+          </div>
+          <div class="column is-half"></div>
+          <!-- job 3 -->
+          <div class="column is-half">
+            <p class="tight">
+              Data Scientist<br />
+              SAP<br />
+            </p>
+          </div>
+          <div class="column is-half">
+            <p>
+              May 2017 - Sept 2017<br />
+              Waterloo, Ontario, Canada
+            </p>
+          </div>
+          <div class="column is-half">
+            <p>
+              <more>Worked on the Predictive Analytics team. Aided in the
+                development of multiple showcase projects that brought useful
+                analytical insights for clients. This included data cleansing
+                in R and SQL, data visualization in SAP Business Objects, and
+                creating predictive models. Designed and created a predictive
+                movie recommendation model for tiff, which doubled their click
+                through rate and conversion rate.</more>
+            </p>
+          </div>
+          <div class="column is-half"></div>
+          <!-- job 4 -->
+          <div class="column is-half">
+            <p class="tight">
+              Survey Methodologist<br />
+              Statistics Canada<br />
+            </p>
+          </div>
+          <div class="column is-half">
+            <p>
+              Sept 2016 - Dec 2016<br />
+              Ottawa, Ontario, Canada
+            </p>
+          </div>
+          <div class="column is-half">
+            <p>
+              <more>Cleaned and analyzed paradata to identify behavioral patterns
+                of users, in order to further improve future releases of the
+                electronic travel survey. Built a net worth logistic
+                regression model using survey data to better predict Canadian
+                travelers, increasing the chance of selecting valid travelers
+                in future samples. Executed a Monte Carlo simulation to
+                determine which imputation method was the most effective to
+                correct for non-response bias.</more>
+            </p>
+          </div>
+          <div class="column is-half"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-fullheight" id="portfolio">
+    <div class="hero-body">
+      <div class="container">
+        <h3 class="title is-2">Portfolio</h3>
+        <div container portfolio-container>
+          <div class="columns is-multiline">
+            {% for project in projects %}
+            <div class="column is-one-third">
+              <!-- project 1 -->
+              <div class="card">
+                <header class="card-header">
+                  <p class="card-header-title">
+                    <span>{{ project.project_name }}</span>
+                    <!-- <span class="tag is-default">v0.7.2</span> -->
+                    <!-- <span class="is-pulled-right">
+                        <a
+                          href="https://github.com/jgthms/bulma/releases/tag/0.7.2"
+                        >
+                          <span class="tag is-default">v0.7.2</span>
+                        </a>
+                        <span class="tag is-default">Desktop</span>
+                        <span class="tag is-danger">WIP</span>
+                      </span> -->
+                  </p>
+                </header>
+                <div class="card-content">
+                  <figure class="image">
+                    <img src="{{ url_for('static', filename= project.img_path ) }}" alt="Admin template screenshot" />
+                  </figure>
+                </div>
+                <footer class="card-footer">
+                  {% if project.info_url %}
+                  <a href="{{ project.info_url }}" class="card-footer-item">More Info</a>
+                  {% endif %}
+
+                  <a href="{{ project.code_url }}" class="card-footer-item">Code</a>
+                </footer>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact Section - To be implemented Later -->
+  <!-- <section class="hero is-fullheight" id="contact">
+    <div class="hero-body">
+      <div class="container">
+        <h3 class="title is-2">Contact Me / Work With Me</h3>
+        <form method="POST">
+          <div class="columns">
+            <div class="column is-6">
+              <div class="box">
+                <div class="field">
+                  <label class="label">Name</label>
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Name" />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Email</label>
+                  <div class="control">
+                    <input class="input" type="email" placeholder="Email" value="" />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Message</label>
+                  <div class="control">
+                    <textarea class="textarea" placeholder="Message"></textarea>
+                  </div>
+                </div>
+
+                <div class="field is-grouped has-text-centered">
+                  <div class="control">
+                    <button class="button is-link">
+                      <span>Submit</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section> -->
+
+  <script src="{{ url_for('static', filename='scripts/core.min.js') }}"></script>
+  <script>
+    new Typewriter("#typewriter", {
+      strings: ["Data Analytics", "Data Science", "All Things Data."],
+      autoStart: true,
+      loop: true,
+    });
+  </script>
+</body>
+
+</html>

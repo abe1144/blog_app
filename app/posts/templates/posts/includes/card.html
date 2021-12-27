@@ -1,0 +1,36 @@
+<!--  -->
+<div class="columns featured-post is-multiline">
+  <div class="column is-12 post">
+    <article class="columns featured">
+      <div class="column is-7 post-img">
+        {% if post.img_path %}
+          <img src="{{ url_for('static', filename=post.img_path) }}">
+        {% else %}
+          <img src="https://cdn.emk.dev/templates/featured-image.png" alt="" />
+        {% endif %}
+      </div>
+      <div class="column is-5 featured-content va">
+        <div>
+          <h1 class="title post-title">{{ post.title }}</h1>
+
+          <time datetime="2016-1-1">{{ post.created.date() }}</time>
+          <br />
+          {% for tag in post  .tags %}
+          <a href="{{ url_for('posts.tag_detail', slug=tag.slug) }}"
+            ><span class="tag">{{ tag.title }}</span></a
+          >
+
+          {% endfor %}
+          <br />
+          <p class="post-excerpt">{{ post.body|striptags|truncate(100) }}</p>
+          <br />
+          <a
+            href="{{ url_for('posts.post_detail', slug=post.slug) }}"
+            class="button is-info"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

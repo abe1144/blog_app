@@ -1,0 +1,98 @@
+{% extends 'base.html' %} {% block title %} Create New Post {% endblock %} {%
+block content %}
+
+<!-- <script src="{{ url_for('static', filename='tinymce/tinymce.min.js') }}"></script> -->
+
+<section class="hero is-fullheight-with-navbar">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Create New Post</h1>
+      <form action="{{ url_for('posts.post_create') }}" method="POST" enctype="multipart/form-data">
+        <div class="field">
+          <label class="label">{{ form.title.label() }}</label>
+          <p class="control">
+            {{ form.title(class="input", placeholder="Post Title") }}
+          </p>
+        </div>
+        <div class="field">{{ form.csrf_token }} {{ form.image }}</div>
+        <div class="field">
+          <label class="label">{{ form.body.label() }}</label>
+          <p class="control">
+            {{ form.body(class="textarea", placeholder="Textarea", id="editor")
+            }}
+          </p>
+        </div>
+        <button class="button is-info" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+  tinymce.init({
+    selector: "#editor",
+    plugins: [
+      "advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak spellchecker",
+      "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+      "save table contextmenu directionality template paste textcolor codesample",
+    ],
+    relative_urls: false,
+    images_upload_url: "{{ url_for('posts.imageuploader') }}",
+    images_upload_base_path: '/static/images/uploads',
+    automatic_uploads: true,
+    external_plugins: {
+      'tiny_mce_wiris': "{{ url_for('static', filename='node_modules/@wiris/mathtype-tinymce5/plugin.min.js') }}",
+    },
+    style_formats: [
+      {
+        title: "Subtitle 1",
+        block: "h1",
+        classes: "subtitle is-1",
+      },
+      {
+        title: "Subtitle 2",
+        block: "h2",
+        classes: "subtitle is-2",
+      },
+      {
+        title: "Subtitle 3",
+        block: "h3",
+        classes: "subtitle is-3",
+      },
+      {
+        title: "Subtitle 4",
+        block: "h4",
+        classes: "subtitle is-4",
+      },
+      {
+        title: "Subtitle 5",
+        block: "h5",
+        classes: "subtitle is-5",
+      },
+      {
+        title: "Subtitle 6",
+        block: "h6",
+        classes: "subtitle is-6",
+      },
+      {
+        title: "paragraph",
+        block: "p",
+      },
+    ],
+    toolbar:
+      "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | print preview media fullpage | forecolor backcolor emoticons | codesample link image tiny_mce_wiris_formulaEditor",
+    htmlAllowedTags: ['.*'],
+    htmlAllowedAttrs: ['.*'],
+    draggable_modal: true,
+    codesample_languages: [
+      { text: "HTML/XML", value: "markup" },
+      { text: "JavaScript", value: "javascript" },
+      { text: "CSS", value: "css" },
+      { text: "Processing", value: "processing" },
+      { text: "Python", value: "python" },
+    ],
+    height: "650px",
+    
+  });
+</script>
+
+{% endblock %}
