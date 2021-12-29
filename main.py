@@ -1,10 +1,10 @@
-from app import app
+from app import app as application
 import views
 from app import db
 from posts.blueprint import posts
 
-app.register_blueprint(posts, url_prefix='/blog')
+application.register_blueprint(posts, url_prefix='/blog')
 
 # if __name__ == "__main__":
 #     app.run()
-app = app
+app = application
