@@ -95,19 +95,22 @@
   <section class="hero is-fullheight" id="about">
     <div class="hero-body">
       <div class="container">
-        <h3 class="title is-2">About Me</h3>
-        <p>
-          I am currently pursuing my Masters of Science in Statistics and Data
-          Science at <a href="https://www.kuleuven.be/english/">KU Leuven</a>.
-          I previously graduated with a Bachelor of Mathematics degree with a
-          specialization in Statistics and Business Administratation at the
-          <a href="https://uwaterloo.ca">University of Waterloo</a>. I have
-          about 4 years of working experience in the field of analytics from
-          past internships and full-time positions.
-        </p>
-        <br />
+
         <div class="columns has-same-height is-gapless">
-          <div class="column"></div>
+          <div class="column is-one-third">
+            <h3 class="title is-2">About Me</h3>
+            <p>
+              I am currently pursuing my Masters of Science in Statistics and Data
+              Science at <a href="https://www.kuleuven.be/english/">KU Leuven</a>.
+              I previously graduated with a Bachelor of Mathematics degree with a
+              specialization in Statistics and Business Administratation at the
+              <a href="https://uwaterloo.ca">University of Waterloo</a>. I have
+              about 4 years of working experience in the field of analytics from
+              past internships and full-time positions.
+            </p>
+            <br />
+          </div>
+          <div class="column is-one-quarter"></div>
           <div class="column">
             <!-- Skills -->
             <div class="card">
@@ -177,7 +180,6 @@
               </div>
             </div>
           </div>
-          <div class="column"></div>
         </div>
       </div>
     </div>
@@ -300,7 +302,7 @@
   <section class="hero is-fullheight" id="portfolio">
     <div class="hero-body">
       <div class="container">
-        <h3 class="title is-2">Portfolio</h3>
+        <h3 class="title is-2">Personal Projects</h3>
         <div container portfolio-container>
           <div class="columns is-multiline">
             {% for project in projects %}
