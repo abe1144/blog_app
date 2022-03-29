@@ -7,6 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{% block title %} {% endblock %}</title>
   <script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T768E88SH0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-T768E88SH0');
+  </script>
+
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma.min.css') }}" />
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}" />
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bulma-divider.min.css') }}" />
